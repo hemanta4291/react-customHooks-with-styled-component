@@ -1,5 +1,5 @@
 import React from 'react'
-import DataTable, { Media } from 'react-data-table-component';
+import DataTable from 'react-data-table-component';
 import useUsers from '../hooks/useUsers';
 import { Company, UserListTop, UserListWrapper } from '../components/styled/UserList.styled';
 import { BtnMediumPrimaryContained } from '../components/styled/Button.styled';
