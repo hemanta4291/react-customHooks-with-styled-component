@@ -4,12 +4,6 @@ export const UserListTop = styled.div``
 
 
 export const UserListWrapper = styled.div`
-    padding: 80px 0;
-    max-width:1400px;
-    width: 100%;
-    margin: 0 auto;
-    
-
 
     ${UserListTop}{
         display: flex; 
@@ -26,11 +20,22 @@ export const UserListWrapper = styled.div`
             max-width: 400px;
             width: 100%;
 
+           
+
             &:focus{
                 outline: 0;
             }
+         }
         }
-        }
+
+        @media only screen and (max-width: ${({theme})=>theme.breakPoint.mobile}){
+            flex-direction:column;
+
+            & input{
+                margin: 16px 0 0 0;
+                max-width: 100%;
+            }
+         }
     }
 
     & .rdt_Table{
@@ -65,8 +70,14 @@ export const UserListWrapper = styled.div`
 
 `
 
+export const CompanyWrapper = styled.div`
+
+`
 
 export const Company = styled.div`
+    overflow:visible;
+    text-overflow:initial;
+    white-space:nowrap;
     padding: 16px 0;
     line-height:${({theme})=>theme.lineHeight.lh_28};
 

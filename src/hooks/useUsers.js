@@ -7,25 +7,18 @@ const useUsers = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        let isMounted = true;
-        // const source = axios.CancelToken.source();
-
         const fetchData = async () => {
-            // setIsLoading(true);
+            setIsLoading(true)
             try {
                 const response = await axios.get('/users');
-                // if (isMounted) {
                     setUsers(response.data.users);
                     setFetchError(null);
-                // }
+                    setIsLoading(false)
             } catch (err) {
-                // if (isMounted) {
                     setFetchError(err.message);
                     setUsers([]);
-                // }
-            } finally {
-                 setIsLoading(false);
-            }
+                    setIsLoading(false)
+            } 
         }
 
         fetchData();

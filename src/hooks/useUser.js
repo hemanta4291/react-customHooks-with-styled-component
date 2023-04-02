@@ -7,33 +7,25 @@ const useUser = (userId) => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        let isMounted = true;
-        // const source = axios.CancelToken.source();
 
         const fetchData = async () => {
-            // setIsLoading(true);
+            setIsLoading(true)
             try {
                 const response = await axios.get(`/users/${userId}/posts`);
-                // if (isMounted) {
                     setUser(response.data);
                     setFetchError(null);
-                // }
+                    setIsLoading(false)
             } catch (err) {
-                // if (isMounted) {
                     setFetchError(err.message);
+                    setIsLoading(false)
                     setUser({});
-                // }
-            } finally {
-                 setIsLoading(false);
-            }
+            } 
         }
 
         fetchData();
 
 
     }, [userId]);
-
-    console.log(fetchError,"child render")
 
     return { user, fetchError, isLoading };
 }
